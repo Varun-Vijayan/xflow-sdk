@@ -1,0 +1,63 @@
+{
+  "name": "xflow-sdk",
+  "version": "1.0.0",
+  "description": "TypeScript SDK for XFlow - Temporal workflow orchestration made simple",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "test": "jest",
+    "prepare": "npm run build",
+    "lint": "eslint src/**/*.ts",
+    "clean": "rm -rf dist",
+    "test:example": "npm run build && node dist/examples/basic-workflow.js",
+    "test:local": "./scripts/test-local.sh"
+  },
+  "keywords": [
+    "xflow",
+    "temporal",
+    "workflow",
+    "orchestration",
+    "distributed",
+    "typescript",
+    "sdk"
+  ],
+  "author": "XFlow Team",
+  "license": "MIT",
+  "dependencies": {
+    "@temporalio/activity": "^1.8.0",
+    "@temporalio/client": "^1.8.0",
+    "@temporalio/worker": "^1.8.0",
+    "@temporalio/workflow": "^1.8.0",
+    "axios": "^1.6.0",
+    "jsonwebtoken": "^9.0.2",
+    "uuid": "^9.0.0",
+    "zod": "^3.22.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.0.0",
+    "@types/jsonwebtoken": "^9.0.0",
+    "@types/node": "^20.8.0",
+    "@types/uuid": "^9.0.0",
+    "@typescript-eslint/eslint-plugin": "^6.21.0",
+    "@typescript-eslint/parser": "^6.21.0",
+    "eslint": "^8.51.0",
+    "jest": "^29.0.0",
+    "ts-jest": "^29.0.0",
+    "typescript": "^5.2.0"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xflow/xflow-sdk.git"
+  },
+  "bugs": {
+    "url": "https://github.com/xflow/xflow-sdk/issues"
+  },
+  "homepage": "https://github.com/xflow/xflow-sdk#readme"
+}

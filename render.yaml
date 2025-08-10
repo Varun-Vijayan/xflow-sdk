@@ -1,0 +1,29 @@
+services:
+  - type: web
+    name: xflow-temporal
+    env: docker
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: POSTGRES_HOST
+        fromDatabase:
+          name: xflow-postgres
+          property: host
+      - key: POSTGRES_USER
+        fromDatabase:
+          name: xflow-postgres
+          property: user
+      - key: POSTGRES_PASSWORD
+        fromDatabase:
+          name: xflow-postgres
+          property: password
+      - key: POSTGRES_DB
+        fromDatabase:
+          name: xflow-postgres
+          property: database
+    buildCommand: ./scripts/setup-production.sh
+    startCommand: temporal-server --env development-ssl --config config/custom start
+
+databases:
+  - name: xflow-postgres
+    databaseName: temporal
+    user: temporal 
